@@ -1,3 +1,41 @@
+# 🚀 Running an Angular Project  
+
+## 📌 Steps to Install & Run the Project  
+
+
+# 1️⃣ Install Node.js (version 22.14.0)
+
+ Download and install from: https://nodejs.org/
+
+# 2️⃣ Install Angular CLI (version 19.2.1)
+Open **CMD** anywhere and write:  
+npm install -g @angular/cli@19.2.1
+
+#3️⃣ Clone the Project from GitHub
+git clone https://github.com/USERNAME/REPOSITORY.git
+
+
+# 4️⃣ Install Dependencies
+
+Open CMD in the project folder and write:
+npm install
+
+# 5️⃣ Install Bootstrap & Font Awesome
+
+Open CMD in the project folder and write:
+npm install bootstrap @fortawesome/fontawesome-free
+
+# 6️⃣ Run the Project
+Open CMD in the project folder and write:
+ng serve --open
+
+#7️⃣ to create new componant
+Open CMD in the project folder and write:
+ng g c componanat-name --skip-tests
+
+
+
+
 # NileCars
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
