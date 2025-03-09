@@ -20,16 +20,12 @@ git clone https://github.com/USERNAME/REPOSITORY.git
 Open CMD in the project folder and write:
 npm install
 
-# 5️⃣ Install Bootstrap & Font Awesome
 
-Open CMD in the project folder and write:
-npm install bootstrap @fortawesome/fontawesome-free
-
-# 6️⃣ Run the Project
+#  Run the Project
 Open CMD in the project folder and write:
 ng serve --open
 
-#7️⃣ to create new componant
+# to create new componant
 Open CMD in the project folder and write:
 ng g c componanat-name --skip-tests
 
