@@ -1,3 +1,15 @@
-<h1>
-    Test for farouk!
-</h1>
+<!-- Loading spinner with message -->
+<div class="center-container" *ngIf="isLoading">
+    <div class="content">
+      <mat-spinner color="primary" [diameter]="80"></mat-spinner>
+      <p>Loading data...</p>
+    </div>
+  </div>
+  
+  <!-- Success message after loading completes -->
+  <div class="center-container" *ngIf="!isLoading">
+    <div class="content">
+      <p class="success-message">Data loaded successfully! 🎉</p>
+    </div>
+  </div>
+  
