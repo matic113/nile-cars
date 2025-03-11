@@ -1,15 +1,40 @@
-<!-- Loading spinner with message -->
-<div class="center-container" *ngIf="isLoading">
-    <div class="content">
-      <mat-spinner color="primary" [diameter]="80"></mat-spinner>
-      <p>Loading data...</p>
-    </div>
+<!-- Loading spinner with message
+<!-- <div class="center-container" *ngIf="isLoading">
+  <div class="content">
+    <mat-spinner color="primary" [diameter]="80"></mat-spinner>
+    <p>Loading data...</p>
   </div>
-  
-  <!-- Success message after loading completes -->
-  <div class="center-container" *ngIf="!isLoading">
-    <div class="content">
-      <p class="success-message">Data loaded successfully! 🎉</p>
-    </div>
+</div> -->
+
+<!-- Success message after loading completes -->
+<!-- <div class="center-container" *ngIf="!isLoading">
+  <div class="content">
+    <p class="success-message">Data loaded successfully! 🎉</p>
   </div>
-  
+</div> -->
+
+<div class="container" style="margin: 0 auto">
+  <!-- TODO Remove this div -->
+  <div style="margin-top: 80px;"> </div>
+  <h2>Popular Cars 🔥</h2>
+  <!-- Cars Grid  -->
+  <mat-grid-list [cols]="gridCols" rowHeight="460px" gutterSize="16px">
+    <mat-grid-tile *ngFor="let i of [1,2,3,4,5,6,7,8]">
+      <mat-card class="car-card">
+        <img mat-card-image src="../../assets/car.png" alt="Car {{i}}">
+        <mat-card-content class="mat-card-content">
+          <h3 class="mat-card-title">Royal Enfield Classic 350</h3>
+          <p>⭐ <b>4.8</b> (2,436 reviews)</p>
+          <div class="details">
+            <span>🚗 1 Passenger</span>
+            <span>⚙️ Manual</span>
+          </div>
+          <p class="price">$ 80.00/day</p>
+        </mat-card-content>
+        <mat-card-actions class="mat-card-actions">
+          <button mat-button>Rent Now</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
