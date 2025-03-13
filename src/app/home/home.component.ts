@@ -5,11 +5,12 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-home',
-  imports: [MatProgressSpinnerModule, MatFormFieldModule, MatIconModule, CommonModule, MatGridListModule, MatCardModule,],
+  imports: [MatProgressSpinnerModule, MatFormFieldModule, MatIconModule, CommonModule, MatGridListModule, MatCardModule, FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -88,9 +89,23 @@ export class HomeComponent {
     }
   }
 
+  //------------------------------------------------------ filter logic ------------------------------------------------------
+  filter = {
+    maker: '',
+    model: '',
+    hourPrice: '',
+    location: '',
+    transmissionType: ''
+  };
 
+  async filterCars() {
+    const queryParams = new URLSearchParams(this.filter as any).toString();
+    console.log(`https://nile-cars.azurewebsites.net/api/Cars?${queryParams}`);
 
-
+    // const response = await fetch(`https://nile-cars.azurewebsites.net/api/Cars?${queryParams}`);
+    // const data = await response.json();
+  }
+  //------------------------------------------------------ filter logic ------------------------------------------------------
 
 
 }
