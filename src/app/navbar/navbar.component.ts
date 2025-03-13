@@ -11,22 +11,23 @@ import { CommonModule } from '@angular/common';
 })
 export class NavbarComponent  {
   constructor(
-    private authService: AuthService,
+    public authService: AuthService, // Changed to public for template access
     private router: Router
   ) {}
 
-
-
   token: string | null = null;
   firstname: string | null = null;
+
   ngOnInit(): void {
     this.firstname = this.authService.getFirstname(); 
-    console.log('firstname:', this.firstname);
+    this.token = this.authService.getToken();
+  }
 
-    const token = this.authService.getToken(); 
-    console.log('Token:', token);
-
-   
+  logout(): void {
+    this.authService.logout(); 
+    this.router.navigate(['/home']);
+    this.firstname = null;
+    this.token = null;
   }
   
 }

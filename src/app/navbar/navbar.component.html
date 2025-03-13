@@ -12,42 +12,56 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Navbar Links and Auth Buttons -->
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="home" routerLinkActive="active"><i class="fas fa-home"></i> Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="search" routerLinkActive="active"><i class="fa-solid fa-magnifying-glass"></i>
-            Search</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="deals" routerLinkActive="active"><i class="fas fa-info-circle"></i> Deals</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="contactus" routerLinkActive="active"><i class="fas fa-phone"></i> Contact
-            Us</a>
-        </li>
-      </ul>
+        <!-- Navbar Links and Auth Buttons -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto"> 
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="home" routerLinkActive="active"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="search" routerLinkActive="active"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="deals" routerLinkActive="active"><i class="fas fa-info-circle"></i> Deals</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="contactus" routerLinkActive="active"><i class="fas fa-phone"></i> Contact Us</a>
+                </li>
+            </ul>
 
-      <!-- log in and sign up -->
-      <ul class="navbar-nav ms-auto d-flex">
-        <li class="nav-item">
-          <div class="border border-dark rounded px-3 py-3 m-1">
-            <a class="nav-link p-0" style="line-height: 1;" routerLink="signup" routerLinkActive="active">
-              <i class="fa-solid fa-user-plus"></i> SignUp
-            </a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <div class="border border-dark rounded px-3 py-3 m-1">
-            <a class="nav-link p-0" style="line-height: 1;" routerLink="log-in" routerLinkActive="active">
-              <i class="fa-solid fa-right-to-bracket"></i> Login
-            </a>
-          </div>
-        </li>
-      </ul>
+            <!-- Conditional Auth Buttons -->
+            <ul class="navbar-nav ms-auto d-flex"> 
+                <!-- Display when logged in -->
+                <div *ngIf="authService.getToken()" class="d-flex align-items-center">
+                        <span class=" mt-2">Hello, {{ firstname }}</span>
+                    <li class="nav-item">
+                        <div class="border border-dark rounded px-3 py-3 m-1">
+                            <button class="nav-link p-0" style="line-height: 1; background: none; border: none;" 
+                                    (click)="logout()">
+                                <i class="fa-solid fa-right-from-bracket"></i> Logout
+                            </button>
+                        </div>
+                    </li>
+                </div>
+
+                <!-- Display when not logged in -->
+                <div *ngIf="!authService.getToken()" class="d-flex">
+                    <li class="nav-item">
+                        <div class="border border-dark rounded px-3 py-3 m-1">
+                            <a class="nav-link p-0" style="line-height: 1;" routerLink="signup" routerLinkActive="active">
+                                <i class="fa-solid fa-user-plus"></i> SignUp
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="border border-dark rounded px-3 py-3 m-1">
+                            <a class="nav-link p-0" style="line-height: 1;" routerLink="log-in" routerLinkActive="active">
+                                <i class="fa-solid fa-right-to-bracket"></i> Login
+                            </a>
+                        </div>
+                    </li>
+                </div>
+            </ul>
+        </div>
     </div>
-  </div>
 </nav>
