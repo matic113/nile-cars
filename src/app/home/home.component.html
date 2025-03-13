@@ -9,18 +9,20 @@
       </div>
     </div>
   </header>
+
+
   <section class="filter-section">
     <h2>Filter Cars</h2>
     <div class="filter-container">
       <div class="filter-row">
-        <input type="text" placeholder="Maker of car">
-        <input type="text" placeholder="Model of car">
-        <input type="text" placeholder="Hour Price">
+        <input type="text" placeholder="Maker of car" [(ngModel)]="filter.maker">
+        <input type="text" placeholder="Model of car" [(ngModel)]="filter.model">
+        <input type="text" placeholder="Hour Price" [(ngModel)]="filter.hourPrice">
       </div>
       <div class="filter-row">
-        <input type="text" placeholder="Location">
-        <input type="text" placeholder="Transmission Type">
-        <button>Search →</button>
+        <input type="text" placeholder="Location" [(ngModel)]="filter.location">
+        <input type="text" placeholder="Transmission Type" [(ngModel)]="filter.transmissionType">
+        <button (click)="filterCars()">Search →</button>
       </div>
     </div>
   </section>
@@ -81,6 +83,17 @@
           <div class="rectangle-7" *ngIf="car.isBooked">
             <div style="transform: rotate(180deg);">Booked</div>
           </div>
+
+          <p class="price">$ 80.00/day</p>
+        </mat-card-content>
+        <mat-card-actions class="mat-card-actions">
+          <button mat-button>Rent Now</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
 
         </div>
 
