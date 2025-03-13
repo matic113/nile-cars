@@ -1,95 +1,161 @@
-body {
+.home-body {
   background-color: #F8F9FD;
-}
-
-.center-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
+  /* height: 100; */
 }
 
 
-.success-message {
-  font-size: 24px;
-  font-weight: bold;
-  color: green;
+/* Car Card Style start */
+.viewdetails_span {
+  color: white;
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: 500;
+  word-wrap: break-word;
 }
 
-
-
-/* Car grid */
-.car-card {
-  border-radius: 12px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease-in-out;
-  background-color: transparent;
-  height: 95%;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #eee;
-
-}
-
-.car-card:hover {
-  transform: translateY(-5px);
-}
-
-.car-card img {
+.car-image {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
 }
 
-.car-card .mat-card-header {
+.view-details {
+  width: 132px;
+  height: 20px;
+}
+
+
+
+.makermodel_span {
+  color: black;
+  font-size: 25px;
+
+  font-weight: 600;
+}
+
+
+.fpassengers_span {
+  color: #A2A2A2;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.text-3-passengers {
+  width: 131px;
+  height: 26px;
+  left: 37px;
+  top: 100px;
+  /* position: absolute; */
+}
+
+.manual_span {
+  color: #A2A2A2;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 500;
+}
+
+
+.line-2 {
+  height: 0px;
+  outline: 1px #DFDFDF solid;
+  outline-offset: -0.50px;
+}
+
+.price_span {
+  color: #747474;
+  font-size: 15px;
+  font-family: Inter;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+
+
+.f0hour_span_01 {
+  color: black;
+  font-size: 19px;
+  font-family: Inter;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+
+.f0hour_span_02 {
+  color: #797979;
+  font-size: 15px;
+  font-family: Inter;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+
+.reviewscountreviews_span {
+  color: #B3B3B3;
+  font-size: 13px;
+  font-family: Inter;
+  font-weight: 500;
+  word-wrap: break-word;
+  margin-left: 4px;
+
+}
+
+
+
+
+.rating_span {
+  color: black;
+  font-size: 17px;
+  font-family: Inter;
+  font-weight: 500;
+  word-wrap: break-word;
+  margin-left: 3px;
+}
+
+.rectangle-7 {
+  width: 24.87px;
+  height: 150px;
+  left: 88.08px;
+  top: -26px;
+  position: absolute;
+  transform: rotate(48deg);
+  transform-origin: top left;
+  background: #FC8E15;
+  font-size: 20px;
+  font-family: Cairo;
+  font-weight: 600;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
   text-align: center;
-}
-
-.car-card .mat-card-title {
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-bottom: 8px;
-}
-
-.car-card .mat-card-content {
-  text-align: center;
-  padding: 10px;
-
-
-  & h3 {
-    font-size: 1.3rem;
-  }
-
-
-  & .details {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-  }
-
-  & .price {
-    color: #000000;
-    font-weight: bold;
-    font-size: 20px;
-  }
-}
-
-.car-card .mat-card-content p {
-  color: #666;
-  font-size: 0.9rem;
+  color: white;
 }
 
 
-.car-card button {
+.frame-15 {
+  width: 270px;
+  height: 42px;
+  left: 35px;
+  top: 196px;
+
+}
+
+.frame-16 {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  background-color: white;
+}
+
+.frame-27 {
+  width: 300px;
+  position: relative;
+  box-shadow: 0px 6px 4px rgba(177.61, 177.61, 177.61, 0.25);
+  overflow: hidden;
+  border-radius: 8px;
+  outline: 1px #C5C5C5 solid;
+}
+
+
+.mat-card-actions button {
   width: 100%;
   background-color: #007bff;
   color: white;
@@ -100,6 +166,162 @@ body {
   border: none;
 }
 
-.car-card button:hover {
+.mat-card-actions button:hover {
   background-color: #0056b3;
 }
+
+/* Car Card Style end*/
+
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.page-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: white;
+  color: black;
+  font-weight: bold;
+}
+
+.page-btn.active {
+  background: #FC8E15;
+  color: white;
+}
+
+.page-btn:hover {
+  background: #ffae69;
+}
+
+/* Hero - ----------------------------------------------------------------------------------------  Section */
+.hero-section {
+  background: url('../../assets/realistic-car-headlights-ad-composition-headlights-with-green-purple-illumination_1284-56577\ 1.jpg') no-repeat center center/cover;
+  height: 500px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  position: relative;
+  padding-left: 50px;
+  color: white;
+  text-align: left;
+}
+
+.hero-section .overlay {
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 40%;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: 400px;
+    padding-left: 20px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-section .overlay {
+    max-width: 90%;
+  }
+}
+
+
+/*************  ✨ Codeium Command 🌟  *************/
+.filter-section {
+  width: 70%;
+  height: 250px;
+  margin: -110px auto 20px;
+  background: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+}
+
+.filter-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+}
+
+.filter-row {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.filter-container input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  width: 30%;
+  background-color: #FBFBFB;
+}
+
+.filter-container button {
+  width: 32%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .filter-section {
+    height: 400px;
+
+  }
+
+  .filter-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .filter-row {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .filter-container input,
+  .filter-container button {
+    width: 100%;
+  }
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* part of filter divs */
