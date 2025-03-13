@@ -1,1 +1,53 @@
-<p>log-in works!</p>
+<div class="login-container">
+    <div class="form-wrapper">
+        <!-- Logo Image -->
+        <div class="logo-container">
+            <img class="logo" src="../../assets/images/WhatsApp Image 2025-03-10 at 21.54.55_e34633d6.jpg" alt="App Logo">
+        </div>
+
+        <h2 class="form-title">
+            <i class="fa-solid fa-right-to-bracket"></i>Log In
+        </h2>
+        <p class="subtitle">Welcome back! Please sign in to continue</p>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="example-form">
+            <!-- Email Field -->
+            <div class="form-field-container">
+                <mat-form-field appearance="outline" class="centered-field">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput formControlName="email" placeholder="Enter your email">
+                    <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+                        Email is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+                        Invalid email format
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-field-container">
+                <mat-form-field appearance="outline" class="centered-field">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput formControlName="password" placeholder="Enter your password">
+                    <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+                        Password is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="link-container">
+                <a routerLink="/register" class="register-link">Don't have an account? Sign Up</a>
+            </div>
+
+            <!-- Login Button -->
+            <div class="button-container  ">
+                <button class="btn btn-warning btn-lg w-100 rounded-pill" 
+                        type="submit"
+                        [disabled]="!loginForm.valid">
+                    Sign in
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
