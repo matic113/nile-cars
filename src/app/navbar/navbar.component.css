@@ -1,100 +1,108 @@
 .logo {
-    width: 40px; 
-    height: auto;
-    margin-right: 8px;
+  width: 60px;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
 *::selection {
-    background: #fec260; 
-    color: black; 
+  background: #fec260;
+  color: black;
 }
 
+/* Navbar updates by focla */
 .navbar {
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    z-index: 1000; 
-    background: linear-gradient(45deg, rgb(255, 255, 255), #eeee);
+  height: 80px;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  width: 78%;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1000;
+  border-radius: 20px;
+  background-color: white;
 }
+
+/* Navbar updates by focla */
 
 .navbar-brand {
-    transition: transform 0.3s ease;
-    font-size: 1.8rem; 
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
-    color: #333 !important;
+  transition: transform 0.3s ease;
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  color: #333 !important;
 }
 
 .navbar-brand:hover {
-    transform: scale(1.1);
-    color: #222 !important;
+  transform: scale(1.1);
+  color: #222 !important;
 }
 
 .nav-link {
-    position: relative;
-    transition: color 0.3s ease;
-    font-family: 'Poppins', sans-serif;
-    color: gray;
+  position: relative;
+  transition: color 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  color: gray;
 }
 
-.nav-link[routerLink="login"], 
+.nav-link[routerLink="login"],
 .nav-link[routerLink="register"] {
-    color: #333 !important;
-    font-weight: normal;
+  color: #333 !important;
+  font-weight: normal;
 }
 
 .nav-link[routerLink="login"]:hover,
 .nav-link[routerLink="register"]:hover {
-    color: #222 !important;
+  color: #222 !important;
 }
 
 .nav-link[routerLink="home"],
 .nav-link[routerLink="search"],
 .nav-link[routerLink="deals"],
 .nav-link[routerLink="contactus"] {
-    transition: color 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .nav-link[routerLink="home"]:hover,
 .nav-link[routerLink="search"]:hover,
 .nav-link[routerLink="deals"]:hover,
 .nav-link[routerLink="contactus"]:hover {
-    color: black !important;
+  color: black !important;
 }
 
 .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: gray;
-    transition: width 0.3s ease, left 0.3s ease;
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: gray;
+  transition: width 0.3s ease, left 0.3s ease;
 }
 
 .nav-link:hover::after {
-    width: 100%;
-    left: 0;
-    background-color: #222;
+  width: 100%;
+  left: 0;
+  background-color: #222;
 }
 
 .nav-link.active {
-    font-weight: bold;
-    color: #222 !important;
+  font-weight: bold;
+  color: #222 !important;
 }
 
 .navbar-toggler-icon {
-    color: gray;
+  color: gray;
 }
 
 .shadow-sm {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
-    .navbar-brand {
-        font-size: 1.5rem;
-    }
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
 }

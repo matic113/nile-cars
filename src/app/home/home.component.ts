@@ -4,10 +4,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 @Component({
   selector: 'app-home',
-  imports: [MatProgressSpinnerModule, MatIconModule, CommonModule, MatGridListModule, MatCardModule,],
+  imports: [MatProgressSpinnerModule, MatFormFieldModule, MatIconModule, CommonModule, MatGridListModule, MatCardModule,],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -60,11 +62,9 @@ export class HomeComponent {
     const response = await fetch(`https://nile-cars.azurewebsites.net/api/Cars?page=${pageNum}`);
     const data = await response.json();
     this.carsList = data.items;
-    // Todo: change after
-    // this.totalPages = data.totalCount
+    this.totalPages = data.pageCount
   }
   // Get Cars Service end
-
 
   currentPage = 1;
   pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
@@ -87,6 +87,10 @@ export class HomeComponent {
       this.getCarsList(this.currentPage);
     }
   }
+
+
+
+
 
 
 }
