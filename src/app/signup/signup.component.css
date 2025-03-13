@@ -125,7 +125,6 @@ h2 {
 .login-text a:hover {
   text-decoration: underline;
 }
-/* إضافة تحسينات الـ Responsive */
 @media (max-width: 992px) {
   .form-wrapper {
     width: 90%;

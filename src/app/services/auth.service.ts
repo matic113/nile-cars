@@ -19,7 +19,7 @@ export class AuthService {
       tap((response: any) => {
         if (response.token) {
           localStorage.setItem(this.tokenKey, response.token);
-          this.router.navigate(['/dashboard']); 
+          this.router.navigate(['/home']); 
         }
       })
     );
@@ -30,7 +30,7 @@ export class AuthService {
       tap((response: any) => {
         if (response.token) {
           localStorage.setItem(this.tokenKey, response.token);
-          this.router.navigate(['/dashboard']); 
+          this.router.navigate(['/home']); 
         }
       })
     );
@@ -62,8 +62,10 @@ export class AuthService {
 
 
 logout(): void {
+  localStorage.removeItem('token');
   localStorage.removeItem('auth_token');
-  this.router.navigate(['/login']);
+
+  localStorage.removeItem('firstname');
 }
 
 }

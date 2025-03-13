@@ -50,8 +50,10 @@ export class SignupComponent {
 
       this.authService.onSignup(formData).subscribe({
         next: (res) => {
-          this.router.navigate(['/dashboard']);
-          window.location.reload()
+          this.router.navigate(['/home']).then(() => {
+            window.location.reload();
+          });
+          
         },
         error: (err) => {
           console.error('Registration error:', err);

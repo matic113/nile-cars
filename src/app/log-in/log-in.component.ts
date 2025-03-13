@@ -32,8 +32,10 @@ export class LogInComponent {
       this.authService.login({ email, password }).subscribe({
         next: (response) => { 
           console.log('Login successful! Response:', response);
-          this.router.navigate(['/dashboard']);
-          window.location.reload()
+          this.router.navigate(['/home']).then(() => {
+            window.location.reload();
+          });
+          
         },
         error: (err) => {
           console.error('Login error:', err);
