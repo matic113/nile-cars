@@ -1,21 +1,37 @@
-.form-container {
-  background-color: #f8f9fa;
-  /* min-height: 100vh; */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: #f8f9fa;
 }
 
-.form-title {
-  color: #1f9cee;
-  font-weight: 700;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+.form-wrapper {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
 }
 
-.form-control {
-  transition: all 0.3s ease;
+.form-field-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
 }
 
-.form-control:focus {
-  border-color: #1f9cee;
-  box-shadow: 0 0 0 0.25rem rgba(31, 156, 238, 0.25);
+.centered-field {
+  width: 100%;
+  max-width: 400px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
 }
 
 .btn-warning {
@@ -31,28 +47,74 @@
   transform: translateY(-2px);
 }
 
-a {
-  color: #1f9cee;
-  font-weight: 500;
-  position: relative;
+.logo-container {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-a:hover {
-  color: #fc8e15;
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+.form-title {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.link-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.register-link {
+  color: #666;
+  font-size: 1rem;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -2px;
-  left: 0;
-  background-color: #fc8e15;
-  transition: width 0.3s ease;
+.register-link:hover {
+  color: #007bff;
 }
 
-a:hover::after {
-  width: 100%;
+@media (max-width: 768px) {
+  .form-wrapper {
+      padding: 30px;
+  }
+  
+  .centered-field {
+      max-width: 100%;
+  }
+  
+  .btn-warning {
+      max-width: 100%;
+      font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-wrapper {
+      padding: 25px;
+      border-radius: 15px;
+  }
+  
+  .form-title {
+      font-size: 1.8rem;
+  }
+  
+  .subtitle {
+      font-size: 1rem;
+  }
+  
+  .logo {
+      width: 120px;
+  }
 }
