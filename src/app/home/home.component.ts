@@ -8,9 +8,29 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 
 
+//--------------------------------------------add angular material modules------------------------------------------------------
+
+import { MatSelectModule } from '@angular/material/select';  // إضافة MatSelect
+import { MatInputModule } from '@angular/material/input';  // إضافة MatInput
+import { MatDatepickerModule } from '@angular/material/datepicker';  // إضافة MatDatepicker
+import { MatNativeDateModule } from '@angular/material/core';  // إضافة دعم التواريخ
+
 @Component({
   selector: 'app-home',
-  imports: [MatProgressSpinnerModule, MatFormFieldModule, MatIconModule, CommonModule, MatGridListModule, MatCardModule, FormsModule],
+  standalone: true,
+  imports: [
+    CommonModule,
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatGridListModule,
+    MatCardModule,
+    MatSelectModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    FormsModule
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -18,15 +38,32 @@ export class HomeComponent {
   isLoading = false; // Controls loading state
   gridCols: number = 4;
 
+  locations: string[] = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Miami'];  // ✅ قائمة المواقع
+  pickupLocation: string = '';  // ✅ قيمة الموقع المختار
+  pickupDate: Date | null = null;  // ✅ تاريخ ووقت الاستلام
+  returnDate: Date | null = null;  // ✅ تاريخ ووقت الإرجاع
+
   constructor() {
     // Update grid columns based on screen size
     this.updateGridCols();
-
   }
 
   ngOnInit() {
     this.getCarsList(1);
   }
+
+  searchCars() {
+    console.log('Searching for cars...', {
+      pickupLocation: this.pickupLocation,
+      pickupDate: this.pickupDate,
+      returnDate: this.returnDate
+    });
+  }
+
+//-------------------------------------------------------------------------
+
+
+
 
   //------------------------------------------------------ Update grid columns based on screen size------------------------------------------------------
   @HostListener('window:resize', ['$event'])
@@ -113,6 +150,18 @@ export class HomeComponent {
     // const data = await response.json();
   }
   //------------------------------------------------------ filter logic ------------------------------------------------------
-
+// ------------------------------------------------------car filter component------------------------------------------------------
 
 }
+
+
+
+
+
+
+
+
+
+
+
+

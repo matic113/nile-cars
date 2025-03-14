@@ -13,14 +13,33 @@
     <h2>Filter Cars</h2>
     <div class="filter-container">
       <div class="filter-row">
-        <input type="text" placeholder="Maker of car">
-        <input type="text" placeholder="Model of car">
-        <input type="text" placeholder="Hour Price">
+        <!-- Location Select Component -->
+        <mat-form-field appearance="outline" class="filter-input">
+          <mat-label>Pick-up Location</mat-label>
+          <mat-select [(ngModel)]="pickupLocation" placeholder="Select a location">
+            <mat-option *ngFor="let location of locations" [value]="location">{{ location }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <!-- Pick-up Date & Time -->
+        <mat-form-field appearance="outline" class="filter-input">
+          <mat-label>Pick-up Date & Time</mat-label>
+          <input matInput [matDatepicker]="pickupPicker" [(ngModel)]="pickupDate" placeholder="Select pick-up date and time">
+          <mat-datepicker-toggle matIconSuffix [for]="pickupPicker"></mat-datepicker-toggle>
+          <mat-datepicker #pickupPicker></mat-datepicker>
+        </mat-form-field>
       </div>
+      
       <div class="filter-row">
-        <input type="text" placeholder="Location">
-        <input type="text" placeholder="Transmission Type">
-        <button>Search →</button>
+        <!-- Return Date & Time -->
+        <mat-form-field appearance="outline" class="filter-input">
+          <mat-label>Return Date & Time</mat-label>
+          <input matInput [matDatepicker]="returnPicker" [(ngModel)]="returnDate" placeholder="Select return date and time">
+          <mat-datepicker-toggle matIconSuffix [for]="returnPicker"></mat-datepicker-toggle>
+          <mat-datepicker #returnPicker></mat-datepicker>
+        </mat-form-field>
+        
+        <button mat-raised-button color="primary" (click)="searchCars()">Search →</button>
       </div>
     </div>
   </section>
