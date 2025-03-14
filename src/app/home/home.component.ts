@@ -15,26 +15,20 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  isLoading = true; // Controls loading state
+  isLoading = false; // Controls loading state
   gridCols: number = 4;
 
   constructor() {
     // Update grid columns based on screen size
     this.updateGridCols();
 
-    // Simulate data loading for 3 seconds
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 3000);
   }
-
 
   ngOnInit() {
     this.getCarsList(1);
   }
 
-
-  // Update grid columns based on screen size
+  //------------------------------------------------------ Update grid columns based on screen size------------------------------------------------------
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.updateGridCols();
@@ -52,32 +46,43 @@ export class HomeComponent {
       this.gridCols = 4; // ديسكتوب
     }
   }
-  // End Update grid columns based on screen size
+  //------------------------------------------------------End Update grid columns based on screen size------------------------------------------------------
 
 
-  // Get Cars Service start
+  //------------------------------------------------------ Get Cars Service start------------------------------------------------------
+  // TODO: add another list for enchance pagination first to display and secound to store data
   carsList: any = []
-  totalPages: number = 1;
 
+  totalPages: number = 1;
+  pages: number[] = [];
   async getCarsList(pageNum: number) {
+    this.isLoading = true;
     const response = await fetch(`https://nile-cars.azurewebsites.net/api/Cars?page=${pageNum}`);
     const data = await response.json();
+    this.isLoading = false;
     this.carsList = data.items;
-    this.totalPages = data.pageCount
+    this.totalPages = data.pageCount;
+    this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
   }
-  // Get Cars Service end
+  //------------------------------------------------------ Get Cars Service end------------------------------------------------------
 
+  //------------------------------------------------------ Pagination logic------------------------------------------------------
   currentPage = 1;
-  pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
 
-  setPage(page: number) {
-    this.currentPage = page;
-    this.getCarsList(this.currentPage);
-  }
 
   previousPage() {
+    console.log(this.totalPages);
     if (this.currentPage > 1) {
       this.currentPage--;
+      this.carsList = [];
+      this.getCarsList(this.currentPage);
+    }
+  }
+
+  setPage(page: number) {
+    if (this.currentPage !== page) {
+      this.currentPage = page;
+      this.carsList = [];
       this.getCarsList(this.currentPage);
     }
   }
@@ -85,9 +90,11 @@ export class HomeComponent {
   nextPage() {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
+      this.carsList = [];
       this.getCarsList(this.currentPage);
     }
   }
+  //------------------------------------------------------ Pagination logic end------------------------------------------------------
 
   //------------------------------------------------------ filter logic ------------------------------------------------------
   filter = {
