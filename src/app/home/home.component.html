@@ -42,6 +42,7 @@
         <label><input type="checkbox" (change)="updateFilter('rating', '5')"> ⭐⭐⭐⭐⭐ (4)</label>
       </div>
 
+<<<<<<< HEAD
       <!-- Price Filter -->
       <div class="filter-group">
         <h3>Max Price</h3>
@@ -49,9 +50,67 @@
         <div class="price-range-labels">
           <span>0.00</span>
           <span>{{ filter.price || 1000 }}.00</span>
+=======
+
+  <div class="container" style="margin: 0 auto;">
+    <div style="padding-top: 30px;"> </div>
+    <h2>Popular Cars 🔥</h2>
+
+    <mat-grid-list [cols]="gridCols" rowHeight="460px" gutterSize="0px">
+      <mat-grid-tile *ngFor="let car of carsList">
+
+        <div class="frame-27">
+          <img class="car-image" [src]=car.imageUrl alt="Car Image">
+          <div class="frame-16">
+
+            <div class="maker-model"><span class="makermodel_span">{{car.maker}} {{car?.model}} </span>
+            </div>
+
+            <div style="display: flex;">
+              <p>⭐</p>
+              <div class="rating"><span class="rating_span">{{car?.rating}} </span></div>
+
+              <div class="reviewscount-reviews"><span class="reviewscountreviews_span">({{car?.reviewsCount}}
+                  reviews) </span>
+              </div>
+
+            </div>
+
+
+            <div style="display: flex; justify-content: space-between;">
+              <div class="text-3-passengers"><span class="fpassengers_span">👤
+                  {{car?.numberOfPassengers}} Passengers</span></div>
+              <div class="manual"><span class="manual_span">⚙️ {{car?.transmissionType}}</span></div>
+            </div>
+
+            <div class="line-2"></div>
+
+            <div style="display: flex; justify-content: space-between;">
+              <div class="price"><span class="price_span">Price</span></div>
+              <div class="text--30-hour"><span class="f0hour_span_01">$ {{car?.hourPrice}} </span><span
+                  class="f0hour_span_02">/hour</span>
+              </div>
+
+            </div>
+
+            <br>
+            <div class="frame-15">
+              <mat-card-actions class="mat-card-actions">
+                <button mat-button>
+                  {{ car.isBooked ? 'View Details' : 'Rent Now' }}
+                </button>
+              </mat-card-actions>
+            </div>
+
+          </div>
+          <div class="rectangle-7" *ngIf="car.isBooked">
+            <div style="transform: rotate(180deg);">Booked</div>
+          </div>
+>>>>>>> upstream/main
         </div>
       </div>
 
+<<<<<<< HEAD
       <!-- Apply and Clear Buttons -->
       <div class="filter-actions">
         <button class="apply-btn" (click)="filterCars()">Apply</button>
@@ -73,6 +132,20 @@
       <div class="container" style="margin: 0 auto;">
         <div style="padding-top: 30px;"></div>
         <h2>Popular Cars 🔥</h2>
+=======
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <div *ngIf="isLoading" style="display: flex;justify-content: center;margin-top: -250px;">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <div class="pagination">
+      <button style="display: flex; align-items: center;" mat-button class="page-btn" (click)="previousPage()"
+        [disabled]="currentPage === 1">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+>>>>>>> upstream/main
 
         <mat-grid-list [cols]="gridCols" rowHeight="2:3" gutterSize="16px">
           <mat-grid-tile *ngFor="let car of carsList">
@@ -123,4 +196,9 @@
       </div>
     </div>
   </div>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> upstream/main
 </div>

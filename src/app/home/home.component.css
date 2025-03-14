@@ -1,4 +1,41 @@
+<<<<<<< HEAD
 /* Passenger and Transmission Icon Styles */
+=======
+.home-body {
+  background-color: #F8F9FD;
+  height: 100vc;
+}
+
+
+/* Car Card Style start */
+.viewdetails_span {
+  color: white;
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.car-image {
+  width: 100%;
+}
+
+.view-details {
+  width: 132px;
+  height: 20px;
+}
+
+
+
+.makermodel_span {
+  color: black;
+  font-size: 25px;
+
+  font-weight: 600;
+}
+
+
+>>>>>>> upstream/main
 .fpassengers_span {
   color: #A2A2A2;
   font-size: 14px;
