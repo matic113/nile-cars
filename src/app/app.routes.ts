@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { SignupComponent } from './signup/signup.component';
+import { SearchComponent } from './search/search.component';
 
 export const routes: Routes = [
     // Redirect from the root path '' to 'home' to ensure the app starts with the home page
@@ -16,7 +17,8 @@ export const routes: Routes = [
 
     // Define the '/log-in' route and load the LogInComponent
     { path:'log-in', component: LogInComponent },
-
+ // Define the '/log-in' route and load the LogInComponent
+ { path:'search', component: SearchComponent },
     // Catch-all route for undefined paths, displaying the NotFoundComponent (404 error page)
     { path: "**", component: NotFoundComponent }
 ];

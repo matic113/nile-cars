@@ -1,72 +1,106 @@
-<body class="pt-5">
-    <div class="container form-container d-flex justify-content-center align-items-center mt-5  ">
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="p-4 border rounded shadow-lg form-bg"
-            style="width: 100%; max-width: 500px;">
-            <h2 class="form-title text-center mb-4"> <i class="fa-solid fa-right-to-bracket"></i> Sign Up</h2>
-            <img src="" alt="">
-            <!-- First Name -->
-            <div class="form-group mb-3">
-                <label for="fn">First Name</label>
-                <input name="firstName" formControlName="firstName" id="fn" type="text"
-                    class="form-control form-control-lg rounded-pill" placeholder="HACKED" required>
-                <div class="alert  mt-2"
-                    *ngIf="registerForm.controls.firstName.invalid && registerForm.controls.firstName.touched">
-                    <p>Please start with a capital letter & in range from 3 to 10 characters.</p>
-                </div>
-            </div>
+<div class="login-container">
+  <div class="form-wrapper">
+    <!-- Logo Image -->
+    <img class="logo" src="../../assets/images/WhatsApp Image 2025-03-10 at 21.54.55_e34633d6.jpg" alt="App Logo">
 
-            <!-- Last Name -->
-            <div class="form-group mb-3">
-                <label for="ln">Last Name</label>
-                <input name="lastName" formControlName="lastName" id="ln" type="text"
-                    class="form-control form-control-lg rounded-pill" placeholder="HACKED" required>
-            </div>
-            <!-- User Name -->
+    <h2>Sign Up</h2>
+    <p class="subtitle">Create your account to get started</p>
 
-            <div class="form-group mb-3">
-                <label for="fn">User Name</label>
-                <input name="username" formControlName="username" id="fn" type="text"
-                    class="form-control form-control-lg rounded-pill" placeholder="Enter your first name" required>
-                <div class="alert  mt-2"
-                    *ngIf="registerForm.controls.username.invalid && registerForm.controls.username.touched">
-                    <p>Please start with a capital letter & in range from 3 to 10 characters.</p>
-                </div>
-            </div>
+    <form class="example-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <!-- Form Columns Container -->
+      <div class="form-row">
+        <!-- Left Column (3 fields) -->
+        <div class="left-column">
+          <!-- First Name Field -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>First Name</mat-label>
+            <input type="text" matInput formControlName="firstName" placeholder="Enter your first name">
+            <mat-error *ngIf="signupForm.get('firstName')?.hasError('required')">
+              First name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
 
-            <!-- Email -->
-            <div class="form-group mb-3">
-                <label for="email">Email</label>
-                <input formControlName="email" id="email" type="email" class="form-control form-control-lg rounded-pill"
-                    placeholder="Enter your email" required>
-                <div class="alert " *ngIf="registerForm.controls.email.invalid && registerForm.controls.email.touched">
-                    <p>Please enter a valid email address.</p>
-                </div>
-            </div>
+          <!-- Second Name Field -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Second Name</mat-label>
+            <input type="text" matInput formControlName="secondName" placeholder="Enter your second name">
+            <mat-error *ngIf="signupForm.get('secondName')?.hasError('required')">
+              Second name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
 
-            <!-- Password -->
-            <div class="form-group mb-3">
-                <label for="pass">Password</label>
-                <input formControlName="password" id="pass" type="password"
-                    class="form-control form-control-lg rounded-pill" placeholder="Enter your password" required>
-                <div class="alert "
-                    *ngIf="registerForm.controls.password.invalid && registerForm.controls.password.touched">
-                    <p>Password must be at least 6 characters long and contain at least one letter</p>
-                </div>
-            </div>
+          <!-- Username Field -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Username</mat-label>
+            <input type="text" matInput formControlName="username" placeholder="Enter your username">
+            <mat-error *ngIf="signupForm.get('username')?.hasError('required')">
+              Username is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
 
-            <!-- Confirm Password -->
-            <div class="form-group mb-3">
-                <label for="confirmPass">Confirm Password</label>
-                <input formControlName="confirmPassword" id="confirmPass" type="password"
-                    class="form-control form-control-lg rounded-pill" placeholder="Confirm your password" required>
-                <div class="alert " *ngIf="!passwordsMatch() && registerForm.controls.confirmPassword.touched">
-                    <p>Passwords do not match.</p>
-                </div>
-            </div>
-            <p class="ps-2">Already have an account? <a routerLink="/log-in">Log In</a></p>
-            <!-- Submit Button -->
-            <button class="btn btn-warning btn-lg w-100 rounded-pill mt-4">Submit</button>
-        </form>
-    </div>
+        <!-- Right Column (3 fields) -->
+        <div class="right-column">
+          <!-- Email Field -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email" placeholder="Enter your email">
+            <mat-error *ngIf="signupForm.get('email')?.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="signupForm.get('email')?.hasError('email')">
+              Invalid email format
+            </mat-error>
+          </mat-form-field>
 
-</body>
+          <!-- Password Field -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password" placeholder="Enter your password">
+            <mat-error *ngIf="signupForm.get('password')?.hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="signupForm.get('password')?.hasError('minlength')">
+              Minimum 6 characters required
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Confirm Password Field -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Confirm Password</mat-label>
+            <input type="password" matInput formControlName="confirmPassword" placeholder="Confirm your password">
+            <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('required')">
+              Confirm Password is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="signupForm.hasError('mismatch')">
+              Passwords do not match
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <p class="login-text">
+        Already have an account? <a routerLink="/log-in" style="cursor: pointer;">Login</a>
+      </p>
+
+      <!-- Sign Up Button -->
+      <button 
+        class="btn btn-warning btn-lg w-100 rounded-pill" 
+        type="submit"
+        [disabled]="!signupForm.valid"
+      >
+        Sign Up
+      </button>
+
+      <!-- Divider -->
+      <div class="divider">OR</div>
+
+      <!-- Social Login Buttons -->
+      <button mat-raised-button class="social-btn google">
+        <img src="https://static.vecteezy.com/system/resources/previews/010/353/285/original/colourful-google-logo-on-white-background-free-vector.jpg" 
+             alt="Google Icon">
+        Sign up with Google
+      </button>
+    </form>
+  </div>
+</div>
