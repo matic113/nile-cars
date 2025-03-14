@@ -1,1 +1,241 @@
-<p>search works!</p>
+<div class="search-body">
+    <div class="main-container">
+        <!-- Sidebar Filter (Unchanged) -->
+        <aside class="sidebar-filter">
+            <h2>Filter Options</h2>
+
+            <div class="filter-group">
+                <h3>BRANDS</h3>
+                <label><input type="checkbox" (change)="updateFilter('brand', 'Toyota')"> Toyota (10)</label>
+                <label><input type="checkbox" (change)="updateFilter('brand', 'Honda')"> Honda (14)</label>
+                <label><input type="checkbox" (change)="updateFilter('brand', 'Ford')"> Ford (12)</label>
+                <label><input type="checkbox" (change)="updateFilter('brand', 'BMW')"> BMW (6)</label>
+                <label><input type="checkbox" (change)="updateFilter('brand', 'Mercedes')"> Mercedes (8)</label>
+            </div>
+
+            <div class="filter-group">
+                <h3>TYPE</h3>
+                <label><input type="checkbox" (change)="updateFilter('type', 'Sedan')"> Sedan (10)</label>
+                <label><input type="checkbox" (change)="updateFilter('type', 'SUV')"> SUV (12)</label>
+                <label><input type="checkbox" (change)="updateFilter('type', 'Truck')"> Truck (16)</label>
+                <label><input type="checkbox" (change)="updateFilter('type', 'Convertible')"> Convertible (10)</label>
+            </div>
+
+            <div class="filter-group">
+                <h3>FUEL TYPE</h3>
+                <label><input type="checkbox" (change)="updateFilter('fuelType', 'Petrol')"> Petrol (10)</label>
+                <label><input type="checkbox" (change)="updateFilter('fuelType', 'Diesel')"> Diesel (14)</label>
+                <label><input type="checkbox" (change)="updateFilter('fuelType', 'Electric')"> Electric (12)</label>
+                <label><input type="checkbox" (change)="updateFilter('fuelType', 'Hybrid')"> Hybrid (6)</label>
+            </div>
+
+            <div class="filter-group">
+                <h3>RATING</h3>
+                <label><input type="checkbox" (change)="updateFilter('rating', '1')"> ⭐ (9)</label>
+                <label><input type="checkbox" (change)="updateFilter('rating', '2')"> ⭐⭐ (9)</label>
+                <label><input type="checkbox" (change)="updateFilter('rating', '3')"> ⭐⭐⭐ (8)</label>
+                <label><input type="checkbox" (change)="updateFilter('rating', '4')"> ⭐⭐⭐⭐ (5)</label>
+                <label><input type="checkbox" (change)="updateFilter('rating', '5')"> ⭐⭐⭐⭐⭐ (4)</label>
+            </div>
+
+            <div class="filter-group">
+                <h3>PRICE</h3>
+                <input type="range" min="0" max="1000" [(ngModel)]="filter.price" (input)="updatePriceFilter()">
+                <div class="price-range-labels">
+                    <span>0.00</span>
+                    <span>{{ filter.price || 1000 }}.00</span>
+                </div>
+            </div>
+
+            <div class="filter-actions">
+                <button class="apply-btn" (click)="filterCars()">Apply</button>
+                <button class="clear-btn" (click)="clearFilters()">Clear</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header>
+                <div class="hero-section">
+                    <div class="overlay">
+                        <h1>Find Your Rental Car</h1>
+                        <p>Search and filter to find the perfect car for your needs.</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Enhanced Search Form -->
+            <div class="search-container">
+                <!-- Car Brand -->
+                <label for="brand">Car Brand:</label>
+                <select id="brand" [(ngModel)]="filter.brandSingle">
+                    <option value="">Select a brand</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Honda">Honda</option>
+                    <option value="Ford">Ford</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Mercedes">Mercedes</option>
+                </select>
+
+                <!-- Pickup Location -->
+                <label for="location">Pickup Location:</label>
+                <input id="location" type="text" placeholder="Enter location" [(ngModel)]="filter.location">
+
+                <!-- Car Type -->
+                <label for="carType">Car Type:</label>
+                <select id="carType" [(ngModel)]="filter.typeSingle">
+                    <option value="">Select car type</option>
+                    <option value="Sedan">Sedan</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Truck">Truck</option>
+                    <option value="Convertible">Convertible</option>
+                </select>
+
+                <!-- Fuel Type -->
+                <label for="fuelType">Fuel Type:</label>
+                <select id="fuelType" [(ngModel)]="filter.fuelTypeSingle">
+                    <option value="">Select fuel type</option>
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Electric">Electric</option>
+                    <option value="Hybrid">Hybrid</option>
+                </select>
+
+                <!-- Transmission Type -->
+                <label for="transmission">Transmission Type:</label>
+                <select id="transmission" [(ngModel)]="filter.transmissionSingle">
+                    <option value="">Select transmission type</option>
+                    <option value="Manual">Manual</option>
+                    <option value="Automatic">Automatic</option>
+                </select>
+
+                <!-- Seating Capacity -->
+                <label for="seating">Seating Capacity:</label>
+                <select id="seating" [(ngModel)]="filter.seatingSingle">
+                    <option value="">Select seating capacity</option>
+                    <option value="2">2 Seats</option>
+                    <option value="4">4 Seats</option>
+                    <option value="5">5 Seats</option>
+                    <option value="7+">7+ Seats</option>
+                </select>
+
+                <!-- Features -->
+                <label>Features:</label>
+                <div class="features-group">
+                    <label><input type="checkbox" (change)="updateFilter('features', 'GPS')"> GPS</label>
+                    <label><input type="checkbox" (change)="updateFilter('features', 'Air Conditioning')"> Air
+                        Conditioning</label>
+                    <label><input type="checkbox" (change)="updateFilter('features', 'Child Seat')"> Child Seat</label>
+                </div>
+
+                <!-- Availability Dates -->
+                <label>Pickup Date:</label>
+                <input type="date" [(ngModel)]="filter.pickupDate">
+
+                <label>Return Date:</label>
+                <input type="date" [(ngModel)]="filter.returnDate">
+
+                <!-- Mileage Limit -->
+                <label>Mileage Limit:</label>
+                <div class="mileage-group">
+                    <label><input type="checkbox" [(ngModel)]="filter.unlimitedMileage"> Unlimited Mileage</label>
+                    <div *ngIf="!filter.unlimitedMileage">
+                        <label for="mileageLimit">Max Mileage (km):</label>
+                        <input id="mileageLimit" type="number" placeholder="Enter max mileage"
+                            [(ngModel)]="filter.mileageLimit">
+                    </div>
+                </div>
+
+                <!-- Max Price -->
+                <label for="maxPrice">Max Price ($):</label>
+                <input id="maxPrice" type="number" placeholder="Enter max price" [(ngModel)]="filter.priceSingle">
+
+                <!-- Car Rating -->
+                <label>Car Rating:</label>
+                <div class="star-rating">
+                    <span class="star" *ngFor="let i of [1, 2, 3, 4, 5]" (click)="setRating(i)"
+                        [class.selected]="i <= selectedRating">★</span>
+                </div>
+
+                <!-- Search and Clear Buttons -->
+                <div class="form-actions">
+                    <button class="search-btn" (click)="searchCars()">Search</button>
+                    <button class="clear-form-btn" (click)="clearForm()">Clear Form</button>
+                </div>
+            </div>
+
+            <!-- Search Results -->
+            <div class="container" style="margin: 0 auto;">
+                <div style="padding-top: 30px;"></div>
+                <div class="results-header">
+                    <h2>Search Results 🔥</h2>
+                    <div class="sort-options">
+                        <label for="sort">Sort By:</label>
+                        <select id="sort" [(ngModel)]="sortOption" (change)="sortCars()">
+                            <option value="priceAsc">Price: Low to High</option>
+                            <option value="priceDesc">Price: High to Low</option>
+                            <option value="ratingDesc">Rating: High to Low</option>
+                            <option value="popularity">Popularity</option>
+                        </select>
+                    </div>
+                </div>
+
+                <mat-grid-list [cols]="gridCols" rowHeight="2:3" gutterSize="16px">
+                    <mat-grid-tile *ngFor="let car of carsList">
+                        <div class="frame-27">
+                            <img class="car-image" src="../../assets/car.png" alt="Car Image">
+                            <div class="frame-16">
+                                <div class="maker-model"><span class="makermodel_span">{{car.maker}} {{car?.model}}
+                                    </span></div>
+                                <div style="display: flex;">
+                                    <p>⭐</p>
+                                    <div class="rating"><span class="rating_span">{{car?.rating}} </span></div>
+                                    <div class="reviewscount-reviews"><span
+                                            class="reviewscountreviews_span">({{car?.reviewsCount}} reviews) </span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <div class="text-3-passengers"><span class="fpassengers_span">👤
+                                            {{car?.numberOfPassengers}} Passengers</span></div>
+                                    <div class="manual"><span class="manual_span">⚙️ {{car?.transmissionType}}</span>
+                                    </div>
+                                </div>
+                                <div class="line-2"></div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <div class="price"><span class="price_span">Price</span></div>
+                                    <div class="text--30-hour"><span class="f0hour_span_01">$ {{car?.hourPrice}}
+                                        </span><span class="f0hour_span_02">/hour</span></div>
+                                </div>
+                                <br>
+                                <div class="frame-15">
+                                    <mat-card-actions class="mat-card-actions">
+                                        <button mat-button>{{ car.isBooked ? 'View Details' : 'Rent Now' }}</button>
+                                    </mat-card-actions>
+                                </div>
+                            </div>
+                            <div class="rectangle-7" *ngIf="car.isBooked">
+                                <div style="transform: rotate(180deg);">Booked</div>
+                            </div>
+                        </div>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <div class="pagination">
+                    <button style="display: flex; align-items: center;" mat-button class="page-btn"
+                        (click)="previousPage()" [disabled]="currentPage === 1">
+                        <mat-icon>chevron_left</mat-icon>
+                    </button>
+                    <button *ngFor="let page of pages" mat-button class="page-btn"
+                        [ngClass]="{'active': page === currentPage}" (click)="setPage(page)">
+                        {{ page }}
+                    </button>
+                    <button style="display: flex; align-items: center;" mat-button class="page-btn" (click)="nextPage()"
+                        [disabled]="currentPage === totalPages">
+                        <mat-icon>chevron_right</mat-icon>
+                    </button>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
