@@ -203,7 +203,7 @@
 .hero-section {
   background: url('../../assets/car-hero.jpg') no-repeat center center/cover;
   height: 500px;
-  width: 100vw;
+  /* width: 100vw; */
   display: flex;
   align-items: center;
   justify-content: start;
@@ -246,7 +246,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin: -80px auto 20px; /* تقليل المسافة */
+  margin: -80px auto 20px;
+  /* تقليل المسافة */
 }
 
 .filter-section h2 {
