@@ -231,9 +231,6 @@
     max-width: 90%;
   }
 }
-
-
-/*************  ✨ Codeium Command 🌟  *************/
 .filter-section {
   width: 70%;
   padding: 30px;
@@ -247,7 +244,6 @@
   align-items: center;
   text-align: center;
   margin: -80px auto 20px;
-  /* تقليل المسافة */
 }
 
 .filter-section h2 {
