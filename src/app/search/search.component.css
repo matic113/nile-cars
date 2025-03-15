@@ -2,8 +2,42 @@
   background-color: #F8F9FD;
 }
 
-/* Main container to hold sidebar and content */
+/* Header (Full width at the top) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+nav a {
+    margin-left: 20px;
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+/* Main container to hold sidebar and results under the navbar */
 .main-container {
+
   display: flex;
   gap: 20px;
   padding: 20px;
@@ -99,6 +133,7 @@ input[type="range"] {
 .clear-btn:hover {
   text-decoration: underline;
 }
+
 
 /* Centering the Search Form */
 .search-container {
@@ -362,6 +397,7 @@ label {
 
 /* Pagination */
 .pagination {
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -386,6 +422,7 @@ label {
 .page-btn:hover {
   background: #ffae69;
 }
+
 
 /* Hero Section */
 .hero-section {
