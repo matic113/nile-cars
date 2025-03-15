@@ -60,7 +60,7 @@ export class HomeComponent {
     });
   }
 
-//-------------------------------------------------------------------------
+  //-------------------------------------------------------------------------
 
 
 
@@ -94,7 +94,7 @@ export class HomeComponent {
   pages: number[] = [];
   async getCarsList(pageNum: number) {
     this.isLoading = true;
-    const response = await fetch(`https://nile-cars.azurewebsites.net/api/Cars?page=${pageNum}`);
+    const response = await fetch(`https://nile-cars.azurewebsites.net/api/Cars?MinRating=3&sortCol=rating&page=${pageNum}`);
     const data = await response.json();
     this.isLoading = false;
     this.carsList = data.items;
@@ -150,7 +150,7 @@ export class HomeComponent {
     // const data = await response.json();
   }
   //------------------------------------------------------ filter logic ------------------------------------------------------
-// ------------------------------------------------------car filter component------------------------------------------------------
+  // ------------------------------------------------------car filter component------------------------------------------------------
 
 }
 
