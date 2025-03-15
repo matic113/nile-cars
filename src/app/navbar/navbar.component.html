@@ -1,68 +1,50 @@
-<nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-  <div class="container-fluid">
-    <!-- Brand Name with Custom Font -->
-    <a routerLink="home" class="navbar-brand d-flex align-items-center"
-      style="font-family: 'Roboto', sans-serif; font-weight: bold;">
-      <img src="../../assets/logo.png" alt="" class="logo">
-    </a>
-
-    <!-- Navbar Toggler Button -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-        <!-- Navbar Links and Auth Buttons -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto"> 
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="home" routerLinkActive="active"><i class="fas fa-home"></i> Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="search" routerLinkActive="active"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="deals" routerLinkActive="active"><i class="fas fa-info-circle"></i> Deals</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="contactus" routerLinkActive="active"><i class="fas fa-phone"></i> Contact Us</a>
-                </li>
-            </ul>
-
-            <!-- Conditional Auth Buttons -->
-            <ul class="navbar-nav ms-auto d-flex"> 
-                <!-- Display when logged in -->
-                <div *ngIf="authService.getToken()" class="d-flex align-items-center">
-                        <span class=" mt-2">Hello, {{ firstname }}</span>
-                    <li class="nav-item">
-                        <div class="border border-dark rounded px-3 py-3 m-1">
-                            <button class="nav-link p-0" style="line-height: 1; background: none; border: none;" 
-                                    (click)="logout()">
-                                <i class="fa-solid fa-right-from-bracket"></i> Logout
-                            </button>
-                        </div>
-                    </li>
-                </div>
-
-                <!-- Display when not logged in -->
-                <div *ngIf="!authService.getToken()" class="d-flex">
-                    <li class="nav-item">
-                        <div class="border border-dark rounded px-3 py-3 m-1">
-                            <a class="nav-link p-0" style="line-height: 1;" routerLink="signup" routerLinkActive="active">
-                                <i class="fa-solid fa-user-plus"></i> SignUp
-                            </a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <div class="border border-dark rounded px-3 py-3 m-1">
-                            <a class="nav-link p-0" style="line-height: 1;" routerLink="log-in" routerLinkActive="active">
-                                <i class="fa-solid fa-right-to-bracket"></i> Login
-                            </a>
-                        </div>
-                    </li>
-                </div>
-            </ul>
+<nav class="custom-navbar">
+    <div class="nav-container">
+      <!-- Left Section (Logo + Toggle) -->
+      <div class="nav-left">
+        <a routerLink="home" class="brand-logo">
+          <img src="../../assets/logo.png" alt="Logo" class="logo">
+        </a>
+        <button class="mobile-toggle" (click)="toggleMenu()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+  
+      <!-- Navigation Links -->
+      <div class="nav-links" [class.active]="isMenuOpen">
+        <ul class="main-menu">
+          <li><a class="nav-link" routerLink="home" routerLinkActive="active">
+            <mat-icon>home</mat-icon> Home
+          </a></li>
+          <li><a class="nav-link" routerLink="search" routerLinkActive="active">
+            <mat-icon>search</mat-icon> Search
+          </a></li>
+          <li><a class="nav-link" routerLink="deals" routerLinkActive="active">
+            <mat-icon>local_offer</mat-icon> Deals
+          </a></li>
+          <li><a class="nav-link" routerLink="contactus" routerLinkActive="active">
+            <mat-icon>contact_support</mat-icon> Contact Us
+          </a></li>
+        </ul>
+  
+        <!-- Auth Section -->
+        <div class="auth-section">
+          <div *ngIf="authService.getToken()" class="logged-in">
+            <span class="welcome-text">Hello, {{ firstname }}</span>
+            <button class="auth-btn logout-btn" (click)="logout()">
+              <mat-icon>logout</mat-icon> Logout
+            </button>
+          </div>
+  
+          <div *ngIf="!authService.getToken()" class="logged-out">
+            <a class="auth-btn signup-btn" routerLink="signup" routerLinkActive="active">
+              <mat-icon>person_add</mat-icon> SignUp
+            </a>
+            <a class="auth-btn login-btn" routerLink="log-in" routerLinkActive="active">
+              <mat-icon>login</mat-icon> Login
+            </a>
+          </div>
         </div>
+      </div>
     </div>
-
-</nav>
+  </nav>
