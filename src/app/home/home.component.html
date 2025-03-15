@@ -1,56 +1,32 @@
 <div class="home-body">
-  <!-- Flex container to hold sidebar and main content -->
-  <div class="main-container">
-    <!-- Sidebar Filter -->
-    <aside class="sidebar-filter">
-      <h2>Filter Options</h2>
 
-      <!-- Brands Filter -->
-      <div class="filter-group">
-        <h3>BRANDS</h3>
-        <label><input type="checkbox" (change)="updateFilter('brand', 'Honda')"> Honda (10)</label>
-        <label><input type="checkbox" (change)="updateFilter('brand', 'Yamaha')"> Yamaha (14)</label>
-        <label><input type="checkbox" (change)="updateFilter('brand', 'Suzuki')"> Suzuki (12)</label>
-        <label><input type="checkbox" (change)="updateFilter('brand', 'Bajaj')"> Bajaj (6)</label>
+  <!-- ----------------------------------------------     -   -------------------------------->
+  <header>
+    <div class="hero-section">
+      <div class="overlay">
+        <h1>Welcome to Our Car Rental Service</h1>
+        <p>Find the perfect car for your journey with ease.</p>
       </div>
-
-      <!-- Type Filter -->
-      <div class="filter-group">
-        <h3>TYPE</h3>
-        <label><input type="checkbox" (change)="updateFilter('type', 'Sedan')"> Sedan (10)</label>
-        <label><input type="checkbox" (change)="updateFilter('type', 'SUV')"> SUV (12)</label>
-        <label><input type="checkbox" (change)="updateFilter('type', 'Truck')"> Truck (16)</label>
-        <label><input type="checkbox" (change)="updateFilter('type', 'Convertible')"> Convertible (10)</label>
+    </div>
+  </header>
+  <section class="filter-section">
+    <h2>Filter Cars</h2>
+    <div class="filter-container">
+      <div class="filter-row">
+        <input type="text" placeholder="Maker of car">
+        <input type="text" placeholder="Model of car">
+        <input type="text" placeholder="Hour Price">
       </div>
-
-      <!-- Fuel Type Filter -->
-      <div class="filter-group">
-        <h3>FUEL TYPE</h3>
-        <label><input type="checkbox" (change)="updateFilter('fuelType', 'Petrol')"> Petrol (10)</label>
-        <label><input type="checkbox" (change)="updateFilter('fuelType', 'Diesel')"> Diesel (14)</label>
-        <label><input type="checkbox" (change)="updateFilter('fuelType', 'Electric')"> Electric (12)</label>
-        <label><input type="checkbox" (change)="updateFilter('fuelType', 'Hybrid')"> Hybrid (6)</label>
+      <div class="filter-row">
+        <input type="text" placeholder="Location">
+        <input type="text" placeholder="Transmission Type">
+        <button>Search →</button>
       </div>
+    </div>
+  </section>
+  <!-- -------------------------------------------------------------------------------------------- -->
 
-      <!-- Rating Filter -->
-      <div class="filter-group">
-        <h3>RATING</h3>
-        <label><input type="checkbox" (change)="updateFilter('rating', '1')"> ⭐ (9)</label>
-        <label><input type="checkbox" (change)="updateFilter('rating', '2')"> ⭐⭐ (9)</label>
-        <label><input type="checkbox" (change)="updateFilter('rating', '3')"> ⭐⭐⭐ (8)</label>
-        <label><input type="checkbox" (change)="updateFilter('rating', '4')"> ⭐⭐⭐⭐ (5)</label>
-        <label><input type="checkbox" (change)="updateFilter('rating', '5')"> ⭐⭐⭐⭐⭐ (4)</label>
-      </div>
 
-<<<<<<< HEAD
-      <!-- Price Filter -->
-      <div class="filter-group">
-        <h3>Max Price</h3>
-        <input type="range" min="0" max="1000" [(ngModel)]="filter.price" (input)="updatePriceFilter()">
-        <div class="price-range-labels">
-          <span>0.00</span>
-          <span>{{ filter.price || 1000 }}.00</span>
-=======
 
   <div class="container" style="margin: 0 auto;">
     <div style="padding-top: 30px;"> </div>
@@ -106,33 +82,8 @@
           <div class="rectangle-7" *ngIf="car.isBooked">
             <div style="transform: rotate(180deg);">Booked</div>
           </div>
->>>>>>> upstream/main
         </div>
-      </div>
 
-<<<<<<< HEAD
-      <!-- Apply and Clear Buttons -->
-      <div class="filter-actions">
-        <button class="apply-btn" (click)="filterCars()">Apply</button>
-        <button class="clear-btn" (click)="clearFilters()">Clear</button>
-      </div>
-    </aside>
-
-    <!-- Main Content -->
-    <div class="main-content">
-      <header>
-        <div class="hero-section">
-          <div class="overlay">
-            <h1>Welcome to Our Car Rental Service</h1>
-            <p>Find the perfect car for your journey with ease.</p>
-          </div>
-        </div>
-      </header>
-
-      <div class="container" style="margin: 0 auto;">
-        <div style="padding-top: 30px;"></div>
-        <h2>Popular Cars 🔥</h2>
-=======
       </mat-grid-tile>
     </mat-grid-list>
 
@@ -145,60 +96,21 @@
         [disabled]="currentPage === 1">
         <mat-icon>chevron_left</mat-icon>
       </button>
->>>>>>> upstream/main
 
-        <mat-grid-list [cols]="gridCols" rowHeight="2:3" gutterSize="16px">
-          <mat-grid-tile *ngFor="let car of carsList">
-            <div class="frame-27">
-              <img class="car-image" src="../../assets/car.png" alt="Car Image">
-              <div class="frame-16">
-                <div class="maker-model"><span class="makermodel_span">{{car.maker}} {{car?.model}} </span></div>
-                <div style="display: flex;">
-                  <p>⭐</p>
-                  <div class="rating"><span class="rating_span">{{car?.rating}} </span></div>
-                  <div class="reviewscount-reviews"><span class="reviewscountreviews_span">({{car?.reviewsCount}} reviews) </span></div>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                  <div class="text-3-passengers"><span class="fpassengers_span">👤 {{car?.numberOfPassengers}} Passengers</span></div>
-                  <div class="manual"><span class="manual_span">⚙️ {{car?.transmissionType}}</span></div>
-                </div>
-                <div class="line-2"></div>
-                <div style="display: flex; justify-content: space-between;">
-                  <div class="price"><span class="price_span">Price</span></div>
-                  <div class="text--30-hour"><span class="f0hour_span_01">$ {{car?.hourPrice}} </span><span class="f0hour_span_02">/hour</span></div>
-                </div>
-                <br>
-                <div class="frame-15">
-                  <mat-card-actions class="mat-card-actions">
-                    <button mat-button>{{ car.isBooked ? 'View Details' : 'Rent Now' }}</button>
-                  </mat-card-actions>
-                </div>
-              </div>
-              <div class="rectangle-7" *ngIf="car.isBooked">
-                <div style="transform: rotate(180deg);">Booked</div>
-              </div>
-            </div>
-          </mat-grid-tile>
-        </mat-grid-list>
+      <button *ngFor="let page of pages" mat-button class="page-btn" [ngClass]="{'active': page === currentPage}"
+        (click)="setPage(page)">
+        {{ page }}
+      </button>
 
-        <div class="pagination">
-          <button style="display: flex; align-items: center;" mat-button class="page-btn" (click)="previousPage()" [disabled]="currentPage === 1">
-            <mat-icon>chevron_left</mat-icon>
-          </button>
-          <button *ngFor="let page of pages" mat-button class="page-btn" [ngClass]="{'active': page === currentPage}" (click)="setPage(page)">
-            {{ page }}
-          </button>
-          <button style="display: flex; align-items: center;" mat-button class="page-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">
-            <mat-icon>chevron_right</mat-icon>
-          </button>
-        </div>
-        <br>
-      </div>
+      <button style="display: flex; align-items: center;" mat-button class="page-btn" (click)="nextPage()"
+        [disabled]="currentPage === totalPages">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
     </div>
+
+    <br>
+
   </div>
-<<<<<<< HEAD
-=======
 
 
->>>>>>> upstream/main
 </div>
