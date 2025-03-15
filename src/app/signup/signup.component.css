@@ -49,18 +49,27 @@ h2 {
   gap: 20px;
 }
 
-.btn-warning {
-  background-color: #1f9cee;
-  border-color: #1f9cee;
-  color: white;
-  transition: all 0.3s ease;
+.custom-button {
+  background-color: #fc8e15;
+  color: #ffffff;
+  font-size: 1.25rem;
+  width: 100%;
+  border-radius: 50px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
 
-.btn-warning:hover {
-  background-color: #fc8e15;
-  border-color: #fc8e15;
-  transform: translateY(-2px);
+.custom-button:disabled {
+  background-color: #bcbcbc;
+  cursor: not-allowed;
 }
+
+.custom-button:hover:not(:disabled) {
+  background-color: #e07b10;
+}
+
 
 .divider {
   margin: 20px 0;
