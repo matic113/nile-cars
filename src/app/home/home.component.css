@@ -201,9 +201,9 @@
 
 /* Hero - ----------------------------------------------------------------------------------------  Section */
 .hero-section {
-  background: url('../../assets/realistic-car-headlights-ad-composition-headlights-with-green-purple-illumination_1284-56577\ 1.jpg') no-repeat center center/cover;
+  background: url('../../assets/car-hero.jpg') no-repeat center center/cover;
   height: 500px;
-  width: 100vw;
+  /* width: 100vw; */
   display: flex;
   align-items: center;
   justify-content: start;
@@ -236,92 +236,97 @@
 /*************  ✨ Codeium Command 🌟  *************/
 .filter-section {
   width: 70%;
-  height: 250px;
-  margin: -110px auto 20px;
-  background: rgb(255, 255, 255);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
-
+  margin: -80px auto 20px;
+  /* تقليل المسافة */
 }
 
 .filter-section h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 30px;
-  font-weight: bold;
-  margin-top: 0;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #333;
 }
 
 .filter-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 20px;
   width: 100%;
+  gap: 20px;
 }
 
 .filter-row {
   display: flex;
   width: 100%;
-  gap: 30px;
+  gap: 20px;
   justify-content: space-between;
 }
 
-.filter-container input {
+.filter-input {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
   font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  width: 30%;
-  background-color: #FBFBFB;
+  /* border: 1px solid #ccc; */
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease-in-out;
+}
+
+.filter-input:focus {
+  border-color: #007bff;
+  background-color: #ffffff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
 
 .filter-container button {
   width: 32%;
-  padding: 10px;
-  background-color: #007bff;
+  padding: 12px;
+  background: #007bff;
   color: white;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.filter-container button:hover {
+  background: #0056b3;
 }
 
 @media (max-width: 768px) {
   .filter-section {
-    height: 400px;
-
+    width: 90%;
+    padding: 20px;
   }
 
   .filter-container {
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    gap: 15px;
   }
 
   .filter-row {
     flex-direction: column;
-    gap: 10px;
     width: 100%;
   }
 
-  .filter-container input,
+  .filter-input,
   .filter-container button {
     width: 100%;
   }
 }
 
-button:hover {
-  background-color: #0056b3;
-}
 
 /* part of filter divs */
